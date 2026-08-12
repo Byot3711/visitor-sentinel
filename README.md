@@ -39,10 +39,9 @@ See the [Releases page](../../releases) for the full version history and changel
 
 ## Installation
 
-1. Download the [latest release zip](../../releases/latest)
-2. In your WordPress admin, go to **Plugins → Add New → Upload Plugin**
-3. Select the zip file and click **Install Now**, then **Activate**
-4. Configure detection thresholds, honeypots and alerts under **Visitor Sentinel → Settings**
+1. In your WordPress admin, go to **Plugins → Add New → Upload Plugin**
+2. Select the downloaded zip file and click **Install Now**, then **Activate**
+3. Configure detection thresholds, honeypots and alerts under **Visitor Sentinel → Settings**
 
 ## Screenshots
 
