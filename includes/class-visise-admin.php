@@ -16,6 +16,7 @@ class VISISE_Admin {
 		add_action( 'admin_post_visise_save_settings', array( $this, 'handle_save_settings' ) );
 		add_action( 'admin_post_visise_export_bans', array( $this, 'handle_export_bans' ) );
 		add_action( 'admin_post_visise_confirm_unban', array( $this, 'handle_confirm_unban' ) );
+		add_action( 'admin_post_visise_print_record', array( $this, 'handle_print_record' ) );
 		add_action( 'admin_notices', array( $this, 'show_notices' ) );
 		add_action( 'wp_ajax_' . self::AJAX_ACTION, array( $this, 'ajax_get_online_count' ) );
 		add_action( 'wp_ajax_' . self::AJAX_VISITORS_ACTION, array( $this, 'ajax_get_visitors_rows' ) );
@@ -194,10 +195,8 @@ class VISISE_Admin {
 		if ( empty( $ip ) || ! VISISE_IP::is_valid_ip( $ip ) || empty( $declaration ) || empty( $signature_name ) ) {
 			wp_die( esc_html__( 'Declaration and signature required.', 'visitor-sentinel' ) );
 		}
-		$record_id = VISISE_Ban::unban_with_declaration( $ip, $declaration, $signature_name );
-		$redirect  = $record_id
-			? add_query_arg( array( 'page' => 'visise-history', 'view' => $record_id, 'visise_notice' => 'unbanned' ), admin_url( 'admin.php' ) )
-			: add_query_arg( array( 'page' => 'visise-bans', 'visise_notice' => 'unbanned' ), admin_url( 'admin.php' ) );
+		VISISE_Ban::unban_with_declaration( $ip, $declaration, $signature_name );
+		$redirect = add_query_arg( array( 'page' => 'visise-history', 'visise_notice' => 'unbanned' ), admin_url( 'admin.php' ) );
 		wp_safe_redirect( $redirect );
 		exit;
 	}
@@ -207,16 +206,22 @@ class VISISE_Admin {
 			return;
 		}
 		global $wpdb;
-		$view_id = isset( $_GET['view'] ) ? absint( $_GET['view'] ) : 0;
-		if ( $view_id ) {
-			$record = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . VISISE_DB::unban_log_table() . " WHERE id = %d", $view_id ) );
-			if ( $record ) {
-				include VISISE_PLUGIN_DIR . 'includes/views/unban-record-print.php';
-				return;
-			}
-		}
 		$records = $wpdb->get_results( "SELECT * FROM " . VISISE_DB::unban_log_table() . " ORDER BY created_at DESC LIMIT 200" );
 		include VISISE_PLUGIN_DIR . 'includes/views/history.php';
+	}
+
+	public function handle_print_record() {
+		if ( ! current_user_can( self::CAPABILITY ) ) {
+			wp_die( esc_html__( 'Permission denied.', 'visitor-sentinel' ) );
+		}
+		check_admin_referer( 'visise_print_record' );
+		global $wpdb;
+		$view_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
+		$record  = $view_id ? $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . VISISE_DB::unban_log_table() . " WHERE id = %d", $view_id ) ) : null;
+		if ( ! $record ) {
+			wp_die( esc_html__( 'Record not found.', 'visitor-sentinel' ) );
+		}
+		include VISISE_PLUGIN_DIR . 'includes/views/unban-record-print.php';
 	}
 
 	public function handle_export_bans() {

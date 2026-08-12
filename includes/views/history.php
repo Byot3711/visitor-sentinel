@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td><?php echo esc_html( $r->admin_display_name ); ?> (<?php echo esc_html( $r->admin_login ); ?>)</td>
 							<td><?php echo esc_html( $r->original_reason ); ?></td>
 							<td><?php echo esc_html( $r->score ); ?></td>
-							<td><a href="<?php echo esc_url( add_query_arg( array( 'page' => 'visise-history', 'view' => $r->id ), admin_url( 'admin.php' ) ) ); ?>" class="button button-small"><?php esc_html_e( 'View', 'visitor-sentinel' ); ?></a></td>
+							<td><a href="<?php echo esc_url( wp_nonce_url( add_query_arg( array( 'action' => 'visise_print_record', 'id' => $r->id ), admin_url( 'admin-post.php' ) ), 'visise_print_record' ) ); ?>" class="button button-small" target="_blank" rel="noopener"><?php esc_html_e( 'View', 'visitor-sentinel' ); ?></a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
