@@ -80,3 +80,28 @@
 .pv-toggle-row{display:flex;align-items:center;gap:6px;}
 .pv-honeypot-tokens code{background:#f0f0f1;padding:4px 8px;border-radius:3px;font-size:13px;}
 .pv-th-icon{vertical-align:middle;display:inline-block;margin-right:4px;color:#646970;}
+
+.pv-wrap input[type="checkbox"],
+.visise-settings-card input[type="checkbox"]{
+	-webkit-appearance:checkbox !important;
+	appearance:checkbox !important;
+	opacity:1 !important;
+	position:static !important;
+	display:inline-block !important;
+	width:16px !important;
+	height:16px !important;
+	min-width:16px !important;
+	margin:0 6px 0 0 !important;
+	padding:0 !important;
+	vertical-align:middle !important;
+	pointer-events:auto !important;
+	background:none !important;
+	border:1px solid #8c8f94 !important;
+	box-shadow:none !important;
+}
+.pv-wrap input[type="checkbox"]::before,
+.visise-settings-card input[type="checkbox"]::before,
+.pv-wrap input[type="checkbox"]::after,
+.visise-settings-card input[type="checkbox"]::after{
+	content:none !important;
+}
