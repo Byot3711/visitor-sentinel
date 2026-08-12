@@ -8,7 +8,7 @@ Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Monitors your site's visitors, automatically detects bots and attackers, plants decoy honeypots, checks threat intelligence, and blocks problematic IPs — with a live dashboard.
+Monitors visitors, detects bots and attackers, plants honeypots, checks threat intel, and blocks malicious IPs in real time.
 
 == Description ==
 
