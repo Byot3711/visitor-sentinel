@@ -11,11 +11,7 @@ Visitor Sentinel watches every request to your WordPress site, scores it for ris
 
 ## Download
 
-Grab the latest release (zip, ready to upload from **Plugins → Add New → Upload Plugin**):
-
-**[⬇ Download Visitor Sentinel v3.0.0](../../releases/latest)**
-
-See the [Releases page](../../releases) for the full version history and changelogs.
+Grab the latest release (zip, ready to upload from **Plugins → Add New → Upload Plugin**) from the [Releases page](../../releases).
 
 ## Features
 
