@@ -4,7 +4,7 @@ Tags: security, firewall, honeypot, bot protection, ban ip
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,10 @@ If none of these settings are enabled, the plugin makes no external requests at 
 3. Settings screen, organized into clear sections for detection, threat intelligence, alerts, the visitor counter, and the deception layer.
 
 == Changelog ==
+
+= 3.0.2 =
+* Fixed: country-flag and IP profile lookups were never cached despite being documented as such, causing them to intermittently disappear on the live-updating Visitors screen once the free ip-api.com rate limit was hit. Lookups are now cached for 30 days (1 hour on a failed lookup) as originally intended.
+* Fixed: settings checkboxes could visually appear checked regardless of their actual saved state when another active plugin or theme applied global checkbox styling. Settings checkboxes are now isolated from external CSS.
 
 = 3.0.1 =
 * Fixed: the print view of an unban declaration record (History screen) rendered a full nested HTML document inside the WordPress admin page, breaking the layout. It now opens as its own standalone page.
