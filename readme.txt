@@ -4,7 +4,7 @@ Tags: security, firewall, honeypot, bot protection, ban ip
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.2
+Stable tag: 3.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,9 @@ If none of these settings are enabled, the plugin makes no external requests at 
 3. Settings screen, organized into clear sections for detection, threat intelligence, alerts, the visitor counter, and the deception layer.
 
 == Changelog ==
+
+= 3.0.3 =
+* Modernized the admin panel visual design: refreshed color palette, rounded cards with subtle shadows, pill-style badges, cleaner tables, and restyled form controls.
 
 = 3.0.2 =
 * Fixed: country-flag and IP profile lookups were never cached despite being documented as such, causing them to intermittently disappear on the live-updating Visitors screen once the free ip-api.com rate limit was hit. Lookups are now cached for 30 days (1 hour on a failed lookup) as originally intended.
