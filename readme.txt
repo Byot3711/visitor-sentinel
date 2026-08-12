@@ -4,7 +4,7 @@ Tags: security, firewall, honeypot, bot protection, ban ip
 Requires at least: 5.8
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,9 @@ If none of these settings are enabled, the plugin makes no external requests at 
 3. Settings screen, organized into clear sections for detection, threat intelligence, alerts, the visitor counter, and the deception layer.
 
 == Changelog ==
+
+= 3.0.1 =
+* Fixed: the print view of an unban declaration record (History screen) rendered a full nested HTML document inside the WordPress admin page, breaking the layout. It now opens as its own standalone page.
 
 = 3.0.0 =
 * Added a rules-based detection engine covering SQL injection, XSS, path traversal, known scanner tools, headless browsers, and automated HTTP client libraries.
@@ -218,6 +221,9 @@ If none of these settings are enabled, the plugin makes no external requests at 
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.0.1 =
+Fixes a layout bug on the unban declaration print view in History. Recommended for everyone on 3.0.0.
 
 = 3.0.0 =
 Major update: adds rules-based threat detection, a progressive JS challenge, optional threat intelligence (AbuseIPDB, Tor, subnet banning), a live SSE dashboard, and a decoy admin login page. Requires PHP 7.4+. Fully backward compatible with your existing settings and blocked-IP data.

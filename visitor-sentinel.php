@@ -3,7 +3,7 @@
  * Plugin Name: Visitor Sentinel
  * Plugin URI: https://wordpress.org/plugins/visitor-sentinel/
  * Description: Monitors visitors, detects bots, honeypots, progressive defense, threat intel, SSE live dashboard.
- * Version: 3.0.0
+ * Version: 3.0.1
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Visitor Sentinel
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'VISISE_VERSION', '3.0.0' );
+define( 'VISISE_VERSION', '3.0.1' );
 define( 'VISISE_PLUGIN_FILE', __FILE__ );
 define( 'VISISE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VISISE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
