@@ -9,10 +9,6 @@
 
 Visitor Sentinel watches every request to your WordPress site, scores it for risk, and automatically blocks bots, scanners, brute-force attempts and spam — all from one lightweight dashboard, no external service required.
 
-## Download
-
-Grab the latest release (zip, ready to upload from **Plugins → Add New → Upload Plugin**) from the [Releases page](../../releases).
-
 ## Features
 
 - **Live visitor dashboard** — see who's online right now (updated in real time via Server-Sent Events), daily visit trends, top pages, top referrers, device breakdown, geographic threat map
